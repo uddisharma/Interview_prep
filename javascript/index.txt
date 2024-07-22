@@ -1,0 +1,244 @@
+
+### Set 2
+
+1. **Definition:** What is the difference between `undefined` and `null` in JavaScript?
+both undefined and null are primitive data type in javascript , undefined means that when there is no value assigned to any variable untill any point , it used as a placeholder , for example during the memory creation phase 
+null is used when we don't have any value to assigned to a varibale so that we can update it later 
+undefined is automatically assigned to variables that have been declared but not yet assigned a value, whereas null is explicitly assigned.
+
+
+2. **Guess the Output (Hoisting):**
+   ```javascript
+   console.log(foo);
+   var foo = "Hello";
+   console.log(foo);
+   ```
+
+undefined
+Hello
+
+
+3. **Build Function:** Write a function to check if a string is a palindrome.
+
+const checkPalindrome = (str) => {
+    const reverse = str.split('').reverse().join('');
+    return str === reverse;
+}
+
+4. **Definition:** Explain the concept of "hoisting" in JavaScript.
+
+hoisting is a concept in javascript used to access the varible and functions before declaring them , it only happen with var and normal functions ,
+let and const variables are also hoisted but not initialized, which leads to a ReferenceError if accessed before their declaration.
+for example->
+console.log(a) // undefined
+var a = 1
+
+5. **Guess the Output (Scope):**
+   ```javascript
+   var a = 10;
+   function test() {
+       console.log(a); // undefined
+       var a = 20;
+       console.log(a); //20
+   }
+   test();
+   ```
+
+
+
+### Set 2
+
+1. **Definition:** What is the difference between `==` and `===` in JavaScript?
+both are used to compare any two variables , using == we can just compare the value of variable for example -> const a = 2 , const b = "2"  console.log(a==b)// true
+but === is used to compare both value as well as type of variable 
+ for example -> const a = 2 , const b = "2"  console.log(a===b)// false
+
+
+2. **Guess the Output (Function Hoisting):**
+   ```javascript
+   console.log(foo());
+   function foo() {
+       return "Hello";
+   }
+   ```
+//hello
+
+3. **Build Function:** Write a function to find the factorial of a number.
+const factorial = (num) => {
+    if (num === 0) return 1;
+    let res = 1;
+    for (let i = num; i > 0; i--) {
+        res *= i;
+    }
+    return res;
+};
+
+
+4. **Definition:** Explain the concept of "closure" in JavaScript.
+
+when there are minimum two nested functions and the inner function from that function can access the variable from the outer function using its lexical scope 
+closures are commonly used for data privacy and partial application of functions.
+for example -> 
+function Outer(){
+   const a= 1
+    return function inner (){
+      console.log(a)
+     }
+}
+Outer()()
+
+5. **Guess the Output (Block Scope):**
+   ```javascript
+   let a = 10;
+   if (true) {
+       let a = 20;
+       console.log(a); //20
+   }
+   console.log(a); //`10
+   ```
+
+### Set 3
+
+1. **Definition:** What is the difference between `var`, `let`, and `const` in JavaScript?
+let var and const all three used to declare the variables , there are some difference between them 
+hoisting only works with var
+ var = we can redecare and reassign the varibale 
+ let = we can reassign variable but cannot redecare 
+ const = we cannot both reassign and redecare variable
+now var is used where we support very old browsers
+most of the cases we use const if our data will not change
+var has function scope, whereas let and const have block scope. 
+const requires an initializer when declared.
+
+
+2. **Guess the Output (Hoisting with `let` and `const`):**
+   ```javascript
+   console.log(a);
+   let a = 5;
+   ```
+   ReferenceError a is not defined
+
+3. **Build Function:** Write a function to check if a number is prime.
+
+const checkPrime = (num) => {
+    if (num <= 1) return false
+    for (let i = 2; i < num; i++) {
+        if (num % i == 0) return false
+    }
+    return true
+}
+
+4. **Definition:** Explain the event loop in JavaScript.
+
+event loop is a main concept in JavaScript , that ensure the async nature of javascript , event loop is a tool that will keep checking callback queue  and mircrotask queue and it decide what will execute next if something in callback queue or mircrotask queue and then it will push it to call stack , 
+event loop has some phases , webApi , callback queue , mircrotask queue , call stack etc
+
+5. **Guess the Output (Asynchronous):**
+   ```javascript
+   console.log('Start');
+   setTimeout(() => {
+       console.log('Timeout');
+   }, 0);
+   console.log('End');
+   ```
+
+   //Start
+   //End
+   // Timeout
+
+
+### Set 4
+
+1. **Definition:** What are higher order functions, and how are they used?
+when a function accpect another function as an argument and then it returns another function , called higer order functions
+for example -> map , filter , reduce , forEach array functions
+
+2. **Guess the Output (Function Scope):**
+   ```javascript
+   function outer() {
+       var x = 1;
+       function inner() {
+           console.log(x); // undefined
+           var x = 2;
+       }
+       inner();
+   }
+   outer();
+   ```
+
+
+3. **Build Function:** Write a function to flatten a nested array.
+
+const nestedArray = [1, [2, [3, 4], 5], [6, 7]];
+function flattenArray(arr) {
+    return arr.flat(Infinity); 
+}
+
+4. **Definition:** Explain the difference between synchronous and asynchronous code in JavaScript.
+javascript is single threaded synchronous language but it will support asynchronous 
+synchronous means code run line by line it will block the code if the first line of code doesn't exucuted yet
+asynchronous means it doesn't block the exucation of code ,for example if there is a timer function in code that will exucute after 5 seconds , by async nature of javascript next block of code will execute without waiting for 5 seconds to exucute that block of code , it will handle by event loop
+
+5. **Guess the Output (Object Mutation):**
+   ```javascript
+   const obj = { a: 1 };
+   function modifyObject(o) {
+       o.a = 2;
+   }
+   modifyObject(obj);
+   console.log(obj.a); //2
+   ```
+
+### Set 5
+
+1. **Definition:** What is the prototype chain in JavaScript, and how does inheritance work with prototypes?
+everything in javascript is object and object has a property called prototype , it include lots of properties attached to object , 
+if we want to find any property of object then javascript will first look into object properties if doesn't find anything then it will goes into protptype object if not found then also go into prototype object of that object and so on , is called prototype chain
+inheritance means to copy the properties any object to any other object 
+JavaScript allows objects to inherit properties and methods from other objects through the prototype chain, and that Object.create() or class-based inheritance can establish these relationships.
+
+2. **Guess the Output (Callback Function):**
+   ```javascript
+   function asyncFunction(callback) {
+       setTimeout(() => {
+           callback('Done');
+       }, 100);
+   }
+   asyncFunction((message) => {
+       console.log(message);
+   });
+   ```
+   //print done after 100 milisecond
+
+3. **Build Function:** Write a function that returns the Fibonacci sequence up to a given number.
+const fibbonacci = (num) => {
+    if (num == 0) return 0
+    if (num == 1) return 1
+    return fibbonacci(num - 1) + fibbonacci(num - 2)
+}
+
+4. **Definition:** Explain how JavaScript’s `this` keyword works in different contexts.
+this keyboard is a global object used to reference something , this mainly used in constructor functions
+
+used in ->
+In a method, this refers to the object that owns the method.
+In a constructor function, this refers to the newly created instance.
+In a regular function, this refers to the global object (window in browsers) in non-strict mode, or undefined in strict mode.
+In arrow functions, this is lexically bound from the surrounding context.
+
+5. **Guess the Output (Closures):**
+   ```javascript
+   function createCounter() {
+       let count = 0;
+       return function() {
+           count += 1;
+           return count;
+       };
+   }
+   const counter = createCounter();
+   console.log(counter()); // 1
+   console.log(counter()); // 2
+   ```
+
+
+
