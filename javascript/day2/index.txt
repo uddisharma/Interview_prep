@@ -1,0 +1,189 @@
+
+### Set 8
+
+1. **Definition:** What is the purpose of `async` and `await` in JavaScript, and how do they work?
+async await are used to handle async functions in javascript and using async keyword we can define that this is async function , and await will wait for to fully execute the code or promise , it may me resolve or reject , we cannot use await keyword without async function.
+
+2. **Guess the Output (Rest Parameters):**
+   ```javascript
+   function sum(...args) {
+       return args.reduce((acc, curr) => acc + curr, 0);
+   }
+   console.log(sum(1, 2, 3, 4)); // 10
+   ```
+
+3. **Build Function:** Write a function to merge two sorted arrays into one sorted array.
+const mergearray = (arr1, arr2) => {
+    return arr1.concat(arr2).sort((a, b) => a - b)
+}
+
+4. **Definition:** Explain the concept of immutability in JavaScript, and why it is important.
+Immutability is a concept in which we cannot change the value of any variable after it has been set
+
+5. **Guess the Output (Destructuring):**
+   ```javascript
+   const person = { name: 'Alice', age: 25, city: 'Wonderland' };
+   const { name, ...rest } = person;
+   console.log(name); // ? Alice
+   console.log(rest); // ? {age:25, city:Wonderland}
+   ```
+
+
+### Set 9 (Promises and Their API)
+
+1. **Definition:** Explain the three states of a JavaScript Promise.
+Promises are used for handle async functions
+it has three states 
+defult as pending , fullfilled rejected
+
+2. **Guess the Output (Chaining Promises):**
+   ```javascript
+   Promise.resolve(1)
+       .then(value => {
+           console.log(value); // ? 1
+           return value + 1;
+       })
+       .then(value => {
+           console.log(value); // ? 2
+           return value + 1;
+       })
+       .then(value => {
+           console.log(value); // ? 3
+       });
+   ```
+
+3. **Build Function:** Write a function that returns a promise that resolves after a specified delay.
+
+const delayfunc=(delay)=>{
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+          resolve('this is resolved')
+        },delay)
+    })
+}
+
+4. **Definition:** What is the purpose of the `Promise.all` method, and how does it work?
+promise.all function is used when we have multiple promises and we want to run them paralley , it accect an array of promises and return an error or resolved Promises
+for example ->
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('P1 resolved')
+    }, 1000);
+})
+
+const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('P2 resolved')
+    }, 2000);
+})
+
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('P3 resolved')
+    }, 3000);
+})
+
+Promise.all([p1, p2, p3]).then((values) => {
+    console.log(values)
+})
+
+
+5. **Guess the Output (Promise Rejection):**
+   ```javascript
+   Promise.reject('Error')
+       .then(() => {
+           console.log('Success');
+       })
+       .catch(error => {
+           console.log(error); // ? Error
+       });
+   ```
+
+
+### Set 10 (Advanced Promises and Their API)
+
+1. **Definition:** What is the difference between `Promise.all` and `Promise.race`?
+promise.all function is used when we have multiple promises and we want to run them paralley , it accect an array of promises and return an error or resolved Promises 
+where promise.race() as the name suggest winner , it capture the first promise that will settle , it may be rejected or may be resolved
+
+
+2. **Guess the Output (Promise.allSettled):**
+   ```javascript
+   const p1 = Promise.resolve('Resolved');
+   const p2 = Promise.reject('Rejected');
+   Promise.allSettled([p1, p2]).then(results => {
+       console.log(results); // ?  [Resolved , Rejected]
+   });
+   ```
+
+3. **Build Function:** Write a function that takes an array of promises and returns a promise that resolves with the result of the first resolved promise.
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('P1 rejected')
+    }, 1000);
+})
+
+const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        reject('P2 rejected')
+    }, 2000);
+})
+
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('P3 resolved')
+    }, 3000);
+})
+
+Promise.any([p1, p2, p3]).then((values) => {
+    console.log(values)
+}).catch((error) => {
+    console.log(error)
+})
+
+
+4. **Definition:** What is the purpose of the `Promise.finally` method, and how does it work?
+Promise.prototype.finally() is a method in JavaScript that allows you to specify a piece of code that should be executed once a promise is settled, regardless of whether the promise was fulfilled (resolved) or rejected. This is particularly useful for cleanup operations or performing actions that need to happen after the promise has been handled, regardless of its outcome.
+function showSpinner() {
+  console.log('Spinner shown');
+}
+
+function hideSpinner() {
+  console.log('Spinner hidden');
+}
+
+let fetchData = new Promise((resolve, reject) => {
+  showSpinner();
+  setTimeout(() => {
+    // Simulate an asynchronous operation
+    resolve('Data fetched successfully');
+    // Or reject('Error: Failed to fetch data'); to simulate an error
+  }, 2000);
+});
+
+fetchData
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(() => {
+    hideSpinner(); // Hide the spinner regardless of the outcome
+  });
+
+5. **Guess the Output (Chained Promises with Error Handling):**
+   ```javascript
+   Promise.resolve('Start')
+       .then(result => {
+           console.log(result); // ? Start
+           throw new Error('Something went wrong');
+       })
+       .then(() => {
+           console.log('This will not run');
+       })
+       .catch(error => {
+           console.log(error.message); // ? Something went wrong
+       });
+   ```
+
