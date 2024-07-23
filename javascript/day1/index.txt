@@ -241,4 +241,119 @@ In arrow functions, this is lexically bound from the surrounding context.
    ```
 
 
+### Set 6
+
+1. **Definition:** What is a JavaScript promise, and how does it work?
+Promises in javascript used to handle async functions , they have  states , default as pending , and fullfill and reject , before promises async functions was handle by callbacks , now a days these are handle by promises and promises are handle by .then and .catch block 
+
+2. **Guess the Output (Array Methods):**
+   ```javascript
+   const numbers = [1, 2, 3, 4];
+   const doubled = numbers.map(x => x * 2);
+   console.log(doubled); // [2,4,6,8]
+   ```
+
+3. **Build Function:** Write a function to debounce another function, ensuring it is only called after a specified delay period.
+
+custom hook using react js
+const useDebounce = (value, delay) => {
+
+    const [debouncedValue, setDebouncedValue] = useState(value)
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value)
+        }, delay)
+        return () => {
+            clearTimeout(handler)
+        }
+    }, [value, delay])
+    return debouncedValue
+}
+
+
+const Main = () => {
+    const devounceValue = useDebounce("hello", 1000)
+    console.log(devounceValue)
+}
+
+// javascript code
+
+function debounce(func, delay) {
+    let timeoutId;
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+
+
+4. **Definition:** Explain how JavaScript handles asynchronous operations internally.
+firstly all the synchronous code is handle by call stack in javascript , but when some async code will comes into picture like a timer function that will exucute after 5 seconds then it that code will be go into web api section where 5 seconds delay will attached to that function , after 5 seconds code will pushed to callback queue from where event loop will pop the code then push to call stack then the code will finally execute 
+
+
+5. **Guess the Output (Prototype Inheritance):**
+   ```javascript
+   function Person(name) {
+       this.name = name;
+   }
+   Person.prototype.sayHello = function() {
+       console.log('Hello, ' + this.name);
+   };
+   
+   function Student(name, subject) {
+       Person.call(this, name);
+       this.subject = subject;
+   }
+   Student.prototype = Object.create(Person.prototype);
+   Student.prototype.constructor = Student;
+
+   const student = new Student('Alice', 'Math');
+   student.sayHello(); // Hellow Alice
+   ```
+
+
+### Set 7
+
+1. **Definition:** What is the difference between `call`, `apply`, and `bind` methods in JavaScript?
+these are used to access the value of this keyword , when call function called then it expect first arugment for this keyword then second argument is optional
+, same for apply function but it expect 2nd argument as an array 
+and when bind function called then it expect an another function as 2nd argument and returns a new function.
+
+2. **Guess the Output (Promise):**
+   ```javascript
+   const promise = new Promise((resolve, reject) => {
+       resolve('Success');
+   });
+
+   promise.then(result => {
+       console.log(result); // Success
+       return 'Another success';
+   }).then(result => {
+       console.log(result); // Another success
+   });
+   ```
+
+3. **Build Function:** Write a function to deep clone an object in JavaScript.
+const deepcopy = (obj) => {
+    return JSON.parse(JSON.stringify(obj))
+}
+
+4. **Definition:** Explain the concept of event delegation in JavaScript.
+Event delegation is a technique where a single event listener is added to a parent element to manage events for multiple child elements, even those added dynamically. This leverages event bubbling and reduces the number of event listeners in the DOM.
+
+5. **Guess the Output (Default Parameters):**
+   ```javascript
+   function multiply(a, b = 2) {
+       return a * b;
+   }
+
+   console.log(multiply(3)); // 6
+   console.log(multiply(3, 4)); // 12
+   ```
+
+
+
 
