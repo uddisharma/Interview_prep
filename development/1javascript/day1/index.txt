@@ -1,5 +1,5 @@
 
-### Set 2
+### Set 1
 
 1. **Definition:** What is the difference between `undefined` and `null` in JavaScript?
 both undefined and null are primitive data type in javascript , undefined means that when there is no value assigned to any variable untill any point , it used as a placeholder , for example during the memory creation phase 
@@ -27,7 +27,7 @@ const checkPalindrome = (str) => {
 
 4. **Definition:** Explain the concept of "hoisting" in JavaScript.
 
-hoisting is a concept in javascript used to access the varible and functions before declaring them , it only happen with var and normal functions ,
+hoisting is a concept in javascript used to access or extract the varible and functions before declaring them , it only happen with var and normal functions ,
 let and const variables are also hoisted but not initialized, which leads to a ReferenceError if accessed before their declaration.
 for example->
 console.log(a) // undefined
