@@ -86,7 +86,7 @@ promise
 
 // 6. **Theory**: What is the purpose of `async` and `await` in JavaScript? Provide a brief example.
 // `async` and `await` are used to write asynchronous code in JavaScript.
-// async keywords denotes that this is an async function and await keyword will wait for to fully execute the code or promise , it may me resolve or reject , we cannot use await keyword without async function.
+// async keywords denotes that this is an async function and await keyword will wait for to fully execute the code or promise , it may me resolve or reject , we cannot use await keyword without async function. and errors are handle by catch block
 //for example -> 
 
 const promise3 = new Promise((resolve, reject) => {
@@ -119,7 +119,7 @@ async function asyncFunc() {
 async function asyncFunc() {
     try {
         const result = promise3;
-        console.log("without await"); // may be print before getting result from promise3 also
+        console.log("without await"); // may be print before getting result from promise3 
         console.log(result);
     } catch (error) {
         console.log(error)
@@ -146,7 +146,7 @@ async function asyncFunc() {
 console.log(this) // prints window object in browser , global in node js and  empty object in online compiler
 
 function func() {
-    console.log(149, this) // prints window object in non stict mode, undefined in stict mode
+    console.log(this) // prints window object in non stict mode, undefined in stict mode
 }
 func()
 
@@ -239,7 +239,7 @@ loadData.then((data) => {
     console.error(error);
 })
 
-
+ 
 
 //<------------------------------------------------------------------->
 

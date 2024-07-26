@@ -130,7 +130,7 @@ const checkPrime = (num) => {
 
 4. **Definition:** Explain the event loop in JavaScript.
 
-event loop is a main concept in JavaScript , that ensure the async nature of javascript , event loop is a tool that will keep checking callback queue  and mircrotask queue and it decide what will execute next if something in callback queue or mircrotask queue and then it will push it to call stack , 
+event loop is a main concept in JavaScript , that ensure the async nature of javascript , event loop is a tool that will keep checking callback queue  and mircrotask queue and it decide what will execute next if something in callback queue or mircrotask queue then it will push it to call stack , 
 event loop has some phases , webApi , callback queue , mircrotask queue , call stack etc
 
 5. **Guess the Output (Asynchronous):**
@@ -318,7 +318,7 @@ firstly all the synchronous code is handle by call stack in javascript , but whe
 ### Set 7
 
 1. **Definition:** What is the difference between `call`, `apply`, and `bind` methods in JavaScript?
-these are used to access the value of this keyword , when call function called then it expect first arugment for this keyword then second argument is optional
+these are used to access or manipulate the value of this keyword , when call function called then it expect first arugment for this keyword then second argument is optional
 , same for apply function but it expect 2nd argument as an array 
 and when bind function called then it expect an another function as 2nd argument and returns a new function.
 

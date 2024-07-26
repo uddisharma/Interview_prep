@@ -1,4 +1,4 @@
-// Illegal shadowing -> when we declare a variable with a some name in c certain scope after that we will define a variable with same name in another scope then it will become illegal shadowing
+// Illegal shadowing -> when we declare a variable with a some name in a certain scope after that we will define a variable with same name in another scope then it will become illegal shadowing
 // for example->
 
 let x = 10;
@@ -6,7 +6,7 @@ function test() {
     let x = 20; // This is legal shadowing.
     if (true) {
         let x = 30; // This is also legal shadowing.
-        console.log(x);
+        console.log(x); // 30
     }
 }
 test();
@@ -17,7 +17,7 @@ test();
 
 var a = 10;
 {
-    var a = 100
+    var a = 100;
 }
 console.log(a) // 100
 
@@ -33,7 +33,7 @@ let b = 10;
     // var b = 100
 }
 
-// if we uncomment let b = 100 then it will give an error that b is already declared
+// if we uncomment var b = 100 then it will give an error that b is already declared
 
 
 //<------------------------------------------------------------------->
@@ -173,10 +173,10 @@ async function b() {
     }, 0)
 
     console.log("b")
-   
+
 }
 
-function c(){
+function c() {
     setTimeout(() => {
         console.log("d")
     }, 1000)
@@ -320,3 +320,118 @@ main();
 //output -> ["Start","Task 2 completed","Task 1 completed","End"]
 
 
+//<------------------------------------------------------------------->
+
+console.log(a);
+console.log(b);
+var a = b = 5;
+// we will got an error : b is not defined
+
+//<------------------------------------------------------------------->
+
+var a = 5
+console.log(a++);
+console.log(a)
+//output will be first 5 then 6 because it will increment after printing a.
+
+//<------------------------------------------------------------------->
+
+
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+
+
+// Let's analyze each line step by step.
+
+// ### Line 1: `console.log(1 < 2 < 3);`
+
+// 1. **First Comparison (`1 < 2`):**
+//    - `1` is less than `2`, so this comparison returns `true`.
+
+// 2. **Second Comparison (`true < 3`):**
+//    - Now, `true` is compared to `3`. In JavaScript, `true` is converted to `1` when used in numeric contexts.
+//    - So, the comparison becomes `1 < 3`, which is `true`.
+
+// Hence, `console.log(1 < 2 < 3)` prints `true`.
+
+// ### Line 2: `console.log(3 > 2 > 1);`
+
+// 1. **First Comparison (`3 > 2`):**
+//    - `3` is greater than `2`, so this comparison returns `true`.
+
+// 2. **Second Comparison (`true > 1`):**
+//    - Now, `true` is compared to `1`. In JavaScript, `true` is converted to `1` when used in numeric contexts.
+//    - So, the comparison becomes `1 > 1`, which is `false`.
+
+// Hence, `console.log(3 > 2 > 1)` prints `false`.
+
+// ### Summary
+// - `console.log(1 < 2 < 3)` prints `true`.
+// - `console.log(3 > 2 > 1)` prints `false`.
+
+//<------------------------------------------------------------------->
+
+// Object freezing
+
+// Creating an object
+const person = {
+    name: "Alice",
+    age: 30
+};
+
+// Freezing the object
+Object.freeze(person);
+
+// Trying to modify the object
+person.age = 35; // This will have no effect
+person.address = "123 Main St"; // This will also have no effect
+delete person.name; // This will not work either
+
+// Logging the object to see if any changes occurred
+console.log(person);
+// Output: { name: "Alice", age: 30 }
+
+
+//<-------------------------------------------------------------------
+
+//Freezing a single value 
+
+const person = {};
+
+// Define a property `name` with a value and descriptor
+Object.defineProperty(person, 'name', {
+    value: 'Alice',
+    writable: false,   // The property is read-only
+    enumerable: true,  // The property will be listed during enumeration of the object's properties
+    configurable: false // The property cannot be deleted or changed
+});
+
+console.log(person.name); // Output: Alice
+
+person.name = 'Bob'; // This will have no effect because the property is read-only
+console.log(person.name); // Output: Alice
+
+for (let key in person) {
+    console.log(key); // Output: name (because enumerable is true)
+}
+
+delete person.name; // This will have no effect because configurable is false
+console.log(person.name); // Output: Alice
+
+
+//also we can do like this :
+
+Object.defineProperties(person, {
+    name: {
+        value: 'Alice',
+        writable: false,
+        enumerable: true,
+        configurable: false
+    },
+    age: {
+        value: 30,
+        writable: true,
+        enumerable: true,
+        configurable: true
+    }
+});

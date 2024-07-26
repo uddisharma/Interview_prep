@@ -6,7 +6,7 @@ const mergearray = (arr1, arr2) => {
 
 //Promise.all()
 
-// It will execute all the promises parlelly and wait untill end of all promises will resolve , if a single promise reject it will reject all promises
+// It will execute all the promises parallely and wait untill end of all promises will resolve , if a single promise reject it will reject all promises
 
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -32,7 +32,7 @@ Promise.all([p1, p2, p3]).then((values) => {
 
 //Promise.allSettled()
 
-// It will also execute all the parlelly and wait untill end of all promises will resolve , if a single or more promises will reject then it will not reject all promises but it will log the status of each promise and output the reason of rejection
+// It will also execute all the parallely and wait untill end of all promises will resolve , if a single or more promises will reject then it will not reject all promises but it will log the status of each promise and output the reason of rejection
 
 const p4 = new Promise((resolve, reject) => {
     setTimeout(() => {
