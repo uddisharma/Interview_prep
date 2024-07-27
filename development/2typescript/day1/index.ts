@@ -137,4 +137,142 @@ const output = identity<string>('deepak'); // string
 const output2 = identity<number>(10);  // number
 const output3 = identity<boolean>(true); // boolean
 
-// here you can change the T keyword to any keyword this is just a naming convensiton that lot of developers use 
+// also we can pass the more than 1 type parameter in generics
+
+function identity1<T, U>(arg1: T, arg2: U): [T, U] {
+    return [arg1, arg2];
+}
+
+const output4 = identity1<string, number>('deepak', 42);  // [string, number]
+const output5 = identity1<boolean, string>(true, 'hello');  // [boolean, string]
+const output6 = identity1<number, boolean>(10, false);  // [number, boolean]
+
+console.log(output);  // Output: ['deepak', 42]
+console.log(output2);  // Output: [true, 'hello']
+console.log(output3);  // Output: [10, false]
+
+
+// here you can change the T keyword to any keyword this is just a naming convensiton that lot of developers use
+
+//<-------------------------------------------------------------->
+
+// as const
+// as const is used to make objects arrays or variables immutale means we can't change them in future
+
+const colors = ['red', 'green', 'blue'] as const;
+// TypeScript infers the type as: readonly ["red", "green", "blue"]
+
+// Trying to modify the array will result in an error
+// colors.push('yellow'); // Error: Property 'push' does not exist on type 'readonly ["red", "green", "blue"]'.
+
+//<-------------------------------------------------------------->
+
+//Type Guards
+//A type guard in TypeScript is an expression that performs a runtime check to ensure a variable is of a specific type, which allows TypeScript to narrow the variable's type within a certain scope.
+
+// this can be done using
+// typeof
+// instanceof
+// custom type guard functions
+
+//<------------------------------------------------------------->
+
+//Advanced API's
+
+//<------------------------------------------------------------->
+
+// Pick
+//Pick is a utility type that allows us to pick certain properties from and existing type or interface.
+
+type Person2 = {
+    name: string
+    age: number
+    address: string
+}
+
+type newPerson = Pick<Person2, 'name' | 'age'>
+
+//<------------------------------------------------------------->
+
+//Partials
+// It allows us to make all the properties of a type or interface optional
+
+type newPersonOptional = Partial<Person2>
+
+//<------------------------------------------------------------->
+
+//Readonly
+// It allows us to make all the properties of a type or interface readonly
+
+type newPersonReadonly = Readonly<Person2>
+
+//<------------------------------------------------------------->
+
+//Records 
+//This is used to handle objects with a specific key and value type
+
+type Person3 = Record<number, string>
+
+const person: Person3 = {
+    1: 'John',
+    2: 'Jane',
+    3: 'Bob'
+}
+
+type Person4 = Record<number, { name: string, age: number }>
+
+const person2: Person4 = {
+    1: { name: 'John', age: 30 },
+    2: { name: 'Jane', age: 25 },
+    3: { name: 'Bob', age: 40 }
+}
+
+//<------------------------------------------------------------->
+
+//Map
+// It is used to handle Maps with a specific key and value type
+
+const Person5 = new Map<number, { name: string, age: number }>()
+
+Person5.set(1, { name: 'John', age: 30 })
+Person5.set(2, { name: 'Jane', age: 25 })
+Person5.delete(1)
+
+//<------------------------------------------------------------->
+
+//Exludes
+//It is used to exclude certain properties from a type or interface of union type 
+
+type Person6 = "name" | "age" | "address"
+
+type newPerson6 = Exclude<Person6, 'address'> // "name" | "age"
+
+//<------------------------------------------------------------->
+
+//Omit
+//It is used to exclude certain properties from a object type or interface
+
+interface Todo {
+    title: string;
+    description: string;
+    completed: boolean;
+    createdAt: number;
+}
+
+type TodoPreview = Omit<Todo, "description">; // title: string; completed: boolean; createdAt: number;
+
+//<------------------------------------------------------------->
+
+//Zod library validation and type creation
+
+// import { z } from "zod";
+
+// const personSchema = z.object({
+//     name: z.string(),
+//     age: z.number(),
+//     address: z.string(),
+// });
+
+// type Person1 = z.infer<typeof personSchema>;
+
+// ===> equal to ==> type Person1 = { name: string; age: number; address: string; };
