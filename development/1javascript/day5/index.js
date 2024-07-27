@@ -4,42 +4,46 @@
 
 class Amount {
     constructor() {
-      this.total = 0;
+        this.total = 0;
     }
-  
+
     lacs(value) {
-      this.total += value * 100000;
-      return this;
+        this.total += value * 100000;
+        return this;
     }
-  
+
     crore(value) {
-      this.total += value * 10000000;
-      return this;
+        this.total += value * 10000000;
+        return this;
     }
-  
+
     thousand(value) {
-      this.total += value * 1000;
-      return this;
+        this.total += value * 1000;
+        return this;
     }
-  
+
     value() {
-      return this.total;
+        return this.total;
     }
-  }
-  
-  function computeAmount() {
+}
+
+function computeAmount() {
     return new Amount();
-  }
-  
-  // Example usage
-  const result = computeAmount()
-    .lacs(15)
-    .crore(5)
-    .crore(2)
-    .lacs(20)
-    .thousand(45)
-    .crore(7)
-    .value();
-  
-  console.log(result); // Output: 143545000
-  
+}
+
+// Example usage
+// const result = computeAmount()
+//     .lacs(15)
+//     .crore(5)
+//     .crore(2)
+//     .lacs(20)
+//     .thousand(45)
+//     .crore(7)
+//     .value();
+
+// console.log(result); // Output: 143545000
+
+
+
+
+
