@@ -276,3 +276,25 @@ type TodoPreview = Omit<Todo, "description">; // title: string; completed: boole
 // type Person1 = z.infer<typeof personSchema>;
 
 // ===> equal to ==> type Person1 = { name: string; age: number; address: string; };
+
+
+//<------------------------------------------------------------->
+
+// Explicit Type vs Implicit Type
+
+// Explicit Typing
+// Explicit typing means that the type of a variable, function, parameter, etc., is directly specified by the developer. This can improve code readability and maintainability, as it clearly communicates the intended type.
+
+let age: number = 25;
+function greet(name: string): void {
+    console.log(`Hello, ${name}!`);
+}
+
+// Implicit Typing
+// Implicit typing, also known as type inference, means that the TypeScript compiler automatically infers the type of a variable, function, etc., based on the assigned value or the context. TypeScript's type inference system is quite powerful and can often deduce the correct type without explicit annotations.
+
+let age1 = 25; // TypeScript infers `age` as `number`
+//@ts-ignore
+function greet1(name) {
+    console.log(`Hello, ${name}!`);
+}
