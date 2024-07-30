@@ -173,7 +173,9 @@ engineer.repeat(); // Output: repeat
 
 
 class Person1 {
-    constructor() {
+    constructor(name, age) { // accpect input from user using child class
+        this.name = name;
+        this.age = age;
         console.log('person1');
     }
 
@@ -183,8 +185,8 @@ class Person1 {
 }
 
 class Engineer1 extends Person1 {
-    constructor() {
-        super(); // used to invoke parent class constructor
+    constructor(name, age) {
+        super(name, age); // used to invoke parent class constructor and send data to parent class
         console.log('engineer1');
     }
 
