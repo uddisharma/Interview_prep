@@ -196,6 +196,6 @@ class Engineer1 extends Person1 {
 
 }
 
-const engineer1 = new Engineer1();
+const engineer1 = new Engineer1("deepak", 22);
 // now we have access to both constructors of parent and child class
 // we cannot use constructor in child class without super keyword
