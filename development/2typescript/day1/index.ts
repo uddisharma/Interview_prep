@@ -1,3 +1,41 @@
+//TypeScript is an open-source programming language developed and maintained by Microsoft. It is a statically typed superset of JavaScript, which means it extends JavaScript by adding optional static types, interfaces, enums, and other features. TypeScript code is transpiled into plain JavaScript, which can then be run in any environment that supports JavaScript, such as web browsers and Node.js.
+
+//we cannot use typescript in other languages than javascript
+
+// **Key Features of TypeScript:**
+
+// 1. **Static Typing:** TypeScript allows developers to specify types for variables, function parameters, and return values. This helps catch type-related errors at compile time rather than at runtime.
+
+// 2. **Type Inference:** TypeScript can infer types based on the values assigned to variables, reducing the need for explicit type annotations.
+
+// 3. **Interfaces and Type Aliases:** These allow for defining custom types, making code more readable and maintainable.
+
+// 4. **Generics:** TypeScript supports generics, enabling the creation of reusable and type-safe components.
+
+// 5. **Enum Types:** TypeScript provides enumerated types (enums) for defining a set of named constants.
+
+// 6. **Advanced Type System:** It includes features like union types, intersection types, type guards, and more, providing robust type-checking capabilities.
+
+// 7. **Tooling and Editor Support:** TypeScript's type system improves tooling and editor features, such as autocomplete, navigation, and refactoring.
+
+// **Why Developers Use TypeScript:**
+
+// 1. **Improved Code Quality and Maintainability:** Static typing helps catch errors early, making the code more reliable and easier to maintain.
+
+// 2. **Better Tooling:** TypeScript's integration with popular editors and IDEs enhances developer productivity by providing better code navigation, refactoring, and autocompletion.
+
+// 3. **Large-Scale Application Support:** TypeScript's features, like interfaces and modules, help manage large codebases and make collaboration among teams more efficient.
+
+// 4. **Gradual Adoption:** Developers can gradually introduce TypeScript into an existing JavaScript codebase, making it easier to adopt.
+
+// 5. **Popular Frameworks and Libraries Support:** Many popular JavaScript frameworks and libraries, such as Angular and React, have strong TypeScript support, and TypeScript definitions are available for many libraries.
+
+// 6. **Community and Ecosystem:** TypeScript has a strong community and a rich ecosystem of tools and libraries, making it easier to find resources and support.
+
+// Overall, TypeScript enhances JavaScript development by providing a type system that helps reduce bugs, improve code clarity, and enable more powerful refactoring and analysis tools.
+
+//<------------------------------------------------------->
+
 //ts.config file is used to configure the project in the way like how our code should be strict , how to compile it to js or not etc.
 
 //there are some ts compilers like tsc , es-build , swc, etc
@@ -10,6 +48,8 @@
 //outDir  ---->  tell the compiler where is our output directory
 //noImplicitAny  ---->  tell the compiler that we are not using any implicit any
 //removeComments  ---->  tell the compiler that keep the comments in final compiled js code or not.
+
+
 
 
 
@@ -99,10 +139,44 @@ const user3: User3 = {
 
 //Difference between interface and type
 
+//syntaxically difference , we have to pass equal to  in type and nothing need to paas in interface
 // Both are used to define object types. They differ in the way they handle object properties.
 // types let you to aggregate types or data together means union and intersections
 // interfaces can be implements in classes as well but types doesn't
-//syntaxically difference , we have to pass equal to  in type and nothing need to paas in interface
+interface Animal {
+    name: string;
+    sound(): void;
+}
+
+class Dog implements Animal {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    sound(): void {
+        console.log("Woof!");
+    }
+}
+
+const myDog = new Dog("Buddy");
+myDog.sound(); // Output: Woof!
+
+//declaration merging only works with interfaces not with types
+interface User_2 {
+    name: string;
+}
+
+interface User_2 {
+    age: number;
+}
+
+const user_3: User_2 = {
+    name: 'John',
+    age: 30
+};
+
 // we can define array type using type only 
 type NumberType = number[]
 
@@ -298,3 +372,9 @@ let age1 = 25; // TypeScript infers `age` as `number`
 function greet1(name) {
     console.log(`Hello, ${name}!`);
 }
+
+//<----------------------------------------------------->
+
+// how to constantly change the compiled typescript file with manually compile ts file
+// means without tsc --b
+// by using tsc --watch 

@@ -120,7 +120,7 @@ public class Questions {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    public static void main(String[] args) {
+    public static void main9(String[] args) {
         int num1 = 56;
         int num2 = 98;
         System.out.println("The GCD of " + num1 + " and " + num2 + " is: " + findGCD(num1, num2));
@@ -134,6 +134,11 @@ public class Questions {
             a = temp;
         }
         return a;
+    }
+
+    public static void main10(String[] args) {
+        int[] Newarray = new int[5];
+        int[][] twodarray = new int[5][5];
     }
 
 }

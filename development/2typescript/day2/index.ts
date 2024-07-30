@@ -28,16 +28,13 @@ let num: number = value; // OK, but no type safety
 
 // unknown: The unknown type is similar to any in that it can hold any value, but it enforces type checking before performing operations on the value.
 
-let value1: unknown;
-value1 = 10;       // OK
-value1 = 'hello';  // OK
-value1 = true;     // OK
+let value1a: any = 10; // No type checking, can be used directly
+console.log(value1a.toFixed(2)); // Compiles but might throw an error at runtime
 
-let num1: number;
-if (typeof value1 === 'number') {
-  num1 = value1;   // OK, type checking enforced
-} else {
-  num1 = 0;        // Safe fallback
+let value2: unknown = "hello";
+// console.log(value2.toFixed(2)); // Error: Property 'toFixed' does not exist on type 'unknown'
+if (typeof value2 === "string") {
+  console.log(value2.length); // Safe to use after type checking
 }
 
 // Why unknown is preferred:
@@ -168,6 +165,8 @@ const user_2: User_2 = {
   name: 'John',
   age: 30
 };
+
+
 
 
 
