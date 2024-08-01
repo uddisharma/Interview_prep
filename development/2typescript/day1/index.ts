@@ -202,6 +202,7 @@ doSomething(Direction.Down)
 
 //Generics
 //generics allows us to make a function that works with different types and we can tell ts compilor that we are working with this type this time while calling that function.
+// used to create reusable function that we can use same fuction for different-2 types
 
 function identity<T>(arg: T): T {
     return arg
@@ -251,9 +252,12 @@ const colors = ['red', 'green', 'blue'] as const;
 
 //<------------------------------------------------------------->
 
-//Advanced API's
+//Advanced API's ( Utility Types )
 
 //<------------------------------------------------------------->
+
+// Uility types provide a way to manipulate types and derive new types based on existing ones. and Types will works with utility types
+
 
 // Pick
 //Pick is a utility type that allows us to pick certain properties from and existing type or interface.

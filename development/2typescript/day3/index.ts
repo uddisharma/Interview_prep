@@ -28,7 +28,7 @@ function printLength1(value: string | number) {
 
 
 // ### Question 3:
-// Do you know partials in TS , can we pass more than 1 type parameter in generics or can we change the name of the type parameter from T to any?
+// Do you know generics in TS , can we pass more than 1 type parameter in generics or can we change the name of the type parameter from T to any?
 //Generics are used to write functions that work with different types and we can tell the compiler that we are working with this type this time while calling that function.
 // we can pass the more than 1 type parameter in generics
 // we can change the T keyword to any keyword this is just a naming convensiton that lot of developers use
@@ -108,7 +108,7 @@ map.delete('key1');
 
 //### Question 7:
 // do you know about classes
-//make a class and implement the interface,
+// make a class and implement the interface,
 // how to use inheritance on this parent class 
 // how to use super keyword in child class and how to send data from child to parent class after creating child class object
 
