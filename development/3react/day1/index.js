@@ -26,6 +26,28 @@
 
 //<--------------------------------------------------------------------->
 
+// How react works behind the scenes
+
+// Virtual DOM -> React contain a lightweight copy of the actual DOM. when something change in real DOM , it will not reflect in virtual DOM.
+// this process is called reconciliation or diffing in react
+
+// JSX-> It is javascript syntax that allows us to write HTML in Javascript.
+//JSX is transpiled to JavaScript using tools like Babel.
+
+// Diffing Algorithm:
+// React uses a diffing algorithm to determine what has changed in the Virtual DOM compared to the previous version.
+// Only the changed parts are updated in the actual DOM(a process called "reconciliation"), which improves performance.
+
+// Hooks:
+// Introduced in React 16.8, hooks are functions that let you use state and lifecycle features in function components.
+// Common hooks include useState, useEffect, useContext, etc.
+
+// Error Boundaries:
+// Components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed.
+
+
+//<--------------------------------------------------------------------->
+
 
 // What is reconicllation
 // Reconciliation involves identifying what parts of the virtual DOM have changed and efficiently updating only those parts in the actual DOM. The single-root structure simplifies this process by providing a clear entry point for React to determine where updates should occur.
@@ -55,3 +77,94 @@ const MyComponent = () => {
 
 // 2. By Using Memoization
 // The above problem of reducing the number of rerenders can also be tackled using Memoization. Memoization in React, achieved through the useMemo hook, is a technique used to optimize performance by memoizing (caching) the results of expensive calculations. This is particularly useful when dealing with computations that don't need to be recalculated on every render, preventing unnecessary recalculations and re-renders.
+
+
+//<--------------------------------------------------------------------->
+
+
+// Significance of Key in React
+
+// In React, when rendering a list of elements using the `map` function, it is crucial to assign a unique `key` prop to each element. The "key" is a special attribute that helps React identify which items have changed, been added, or been removed. This is essential for efficient updates and preventing unnecessary re-renders of the entire list.
+// When the `key` prop is not provided or not unique within the list, React can't efficiently track the changes, leading to potential issues in the application's performance and rendering.
+
+
+//<--------------------------------------------------------------------->
+
+
+// Hooks
+// useState, useEffect, useMemo, useCallback,  useRef, useReducer, useContext, useLayoutEffect
+
+// useState
+// useState is a Hook that allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update that state. You can use it to manage and update state in your functional components.
+
+//useEffect :is used for performing side effects in functional components. It is often used for tasks such as data fetching, subscriptions, or manually changing the DOM.
+
+// useMemo : is used for optimizing performance. It prevent the unnecessary recalculations. it holds very expensive calculations and returns a memoized value of a function.
+// The memorized function will only be recomputed when the values in the dependencies array change.
+
+import React, { useState, useMemo } from 'react';
+
+const ExpensiveCalculation = ({ value }) => {
+    const expensiveResult = useMemo(() => {
+        // Simulating a computationally expensive operation
+        console.log('Calculating expensive result...');
+        return value * 2;
+    }, [value]); // Dependency array: recalculates when 'value' changes
+    
+    return (
+        <div>
+            <p>Value: {value}</p>
+            <p>Expensive Result: {expensiveResult}</p>
+        </div>
+    );
+};
+
+const MemoExample = () => {
+    const [inputValue, setInputValue] = useState(5);
+
+    return (
+        <div>
+            <input
+                type="number"
+                value={inputValue}
+                onChange={(e) => setInputValue(Number(e.target.value))}
+            />
+            <ExpensiveCalculation value={inputValue} />
+        </div>
+    );
+};
+
+export default MemoExample;
+
+// useCallback : it is used to memoized a callback function and prevent unnecessary re-creation on each render.
+//  This can be useful when passing callbacks to child components to ensure they don't trigger unnecessary renders
+
+import React, { useState, useCallback } from 'react';
+
+const ChildComponent = ({ onClick }) => {
+    console.log('ChildComponent rendering...');
+    return <button onClick={onClick}>Click me</button>;
+};
+
+const CallbackExample = () => {
+    const [count, setCount] = useState(0);
+
+    // Regular callback function
+    const handleClick = () => {
+        console.log('Button clicked!');
+        setCount((prevCount) => prevCount + 1);
+    };
+
+    // Memoized callback using useCallback
+    const memoizedHandleClick = useCallback(handleClick, []);
+
+    return (
+        <div>
+            <p>Count: {count}</p>
+            <ChildComponent onClick={memoizedHandleClick} />
+        </div>
+    );
+};
+
+//
+
