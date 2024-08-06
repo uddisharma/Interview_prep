@@ -7,8 +7,12 @@ const Hooks = () => {
 
     //useEffect
     useEffect(() => {
-        console.log(value)
+        // console.log(value)
+        console.log('second') // this will called second
     }, [])
+
+    console.log('first') // this will called first 
+
 
     //useMemo
     const computeFactorial = (num: number): number => {
@@ -63,7 +67,6 @@ const Hooks = () => {
             <hr />
             <div>
                 <p>useReducer</p>
-
                 <p>Total using useReducer : {calculateTotal([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])}</p>
             </div>
         </div>
