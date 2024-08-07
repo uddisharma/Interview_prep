@@ -36,7 +36,7 @@
 
 // Diffing Algorithm:
 // React uses a diffing algorithm to determine what has changed in the Virtual DOM compared to the previous version.
-// Only the changed parts are updated in the actual DOM(a process called "reconciliation"), which improves performance.
+// Only the changed parts are updated in the actual DOM ( process called "reconciliation"), which improves performance.
 
 // Hooks:
 // Introduced in React 16.8, hooks are functions that let you use state and lifecycle features in function components.
@@ -49,12 +49,12 @@
 //<--------------------------------------------------------------------->
 
 
-// What is reconicllation
+// What is reconciliation ( react fiber algorithm )
 // Reconciliation involves identifying what parts of the virtual DOM have changed and efficiently updating only those parts in the actual DOM. The single-root structure simplifies this process by providing a clear entry point for React to determine where updates should occur.
 
 const MyComponent = () => {
     return (
-        <>
+        <> // single entry point for DOM
             <Header />
             <MainContent />
             <Footer />
@@ -67,7 +67,7 @@ const MyComponent = () => {
 
 // When Does a Rerender Happen?
 // 1. Changes in a state variable utilized within the component.
-// 2. A re - render of a parent component, which subsequently triggers the re - rendering of all its child components.This cascading effect ensures synchronization throughout the component tree.
+// 2. A re - render of a parent component, which subsequently triggers the re - rendering of all its child components. This cascading effect ensures synchronization throughout the component tree.
 
 // Solutions
 // There are broadly 2 ways of minimizing the amount of rerenders
@@ -92,15 +92,18 @@ const MyComponent = () => {
 
 
 // Hooks
+// hooks are just javascript functions so using that function we write more logic in less code and they are very fast , and every hook have different use cases
 // useState, useEffect, useMemo, useCallback,  useRef, useReducer, useContext, useLayoutEffect
 
 // useState
 // useState is a Hook that allows you to add state to functional components. It returns an array with two elements: the current state value and a function to update that state. You can use it to manage and update state in your functional components.
 
 //useEffect :is used for performing side effects in functional components. It is often used for tasks such as data fetching, subscriptions, or manually changing the DOM.
+// console.log() outside useEffect will be logged first and inside one will logged second
 
 // useMemo : is used for optimizing performance. It prevent the unnecessary recalculations. it holds very expensive calculations and returns a memoized value of a function.
 // The memorized function will only be recomputed when the values in the dependencies array change.
+
 
 import React, { useState, useMemo } from 'react';
 
@@ -110,7 +113,7 @@ const ExpensiveCalculation = ({ value }) => {
         console.log('Calculating expensive result...');
         return value * 2;
     }, [value]); // Dependency array: recalculates when 'value' changes
-    
+
     return (
         <div>
             <p>Value: {value}</p>
@@ -166,5 +169,28 @@ const CallbackExample = () => {
     );
 };
 
-//
+//<--------------------------------------------------------------------->
 
+// let we have a component of header in which there is a button on which when we click on that button it will change to logout button and vice versa
+// so the question is will all the header component will rerender when we click on logout button and vice versa 
+// answer is yes  
+// we can proof it using logging something before returning the component
+// so that value will be logged when we click on logout button and vice versa
+
+//<--------------------------------------------------------------------->
+
+const [value,setValue]= useState("")
+
+// we cannot update the value that is assigned by const , so here how we are able to update the value because this is init by const and we are able to update it
+// when we update the value using set function then react will recall the whole component again behind the scene thats why we are able to update the value that is assigned by const
+
+
+//<--------------------------------------------------------------------->
+
+function Test(a) { // argument
+    console.log(a)
+}
+
+Test(10) // parameter
+
+//<--------------------------------------------------------------------->

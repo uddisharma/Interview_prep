@@ -6,7 +6,7 @@ function MyComponent() {
     useEffect(() => {
         // subscribeToData is a function that sets up a subscription to some data source
         const unsubscribe = subscribeToData((newData: string) => {
-            setData(newData);
+            setData(newData); 
         });
 
         // Cleanup function to unsubscribe when the component unmounts
