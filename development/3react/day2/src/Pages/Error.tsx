@@ -6,7 +6,6 @@ function BuggyComponent() {
     return <div>This will not render</div>;
 }
 
-
 export default function ErrorPage() {
     return (
         <ErrorBoundary

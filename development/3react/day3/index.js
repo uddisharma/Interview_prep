@@ -216,6 +216,7 @@ function ChildComponent({ render }) {
 // <--------------------------------------------------------->
 
 
+// Question 8
 // if we used class instead of className in react will it give error 
 <p className='first' class="second">use Context</p>
 // tell me which classname will be shown in the DOM 
@@ -225,8 +226,8 @@ function ChildComponent({ render }) {
 // <--------------------------------------------------------->
 
 
+// Question 9
 // Error Boundary
-
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -263,3 +264,44 @@ function App() {
 }
 
 
+// <--------------------------------------------------------->
+
+
+// Question 10
+// Do Hooks cover all the functionalities provided by the classes?
+//  Our goal is for Hooks to cover all the functionalities for classes at its
+// earliest. There are no Hook equivalents for the following methods that are
+// not introduced in Hooks yet:
+// 1) getSnapshotBeforeUpdate()
+// 2) getDerivedStateFromError()
+// 3) componentDidCatch()
+
+
+// <--------------------------------------------------------->
+
+
+// Question 11
+// Output
+
+useEffect(() => {
+    console.log(1);
+    return () => {
+        console.log(2);
+    };
+}, []);
+
+useEffect(() => {
+    console.log(3);
+    return () => {
+        console.log(4);
+    };
+}, []);
+
+useEffect(() => {
+    console.log(5);
+    return () => {
+        console.log(6);
+    };
+}, []);
+
+// 1, 3 , 5, 2, 4, 6

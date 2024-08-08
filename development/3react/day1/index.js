@@ -3,9 +3,9 @@
 
 // ### Benefits of React:
 // 1. Performance
-// 2. Reusability
-// 3. Strong Community and Ecosystem
-// 4. Flexibility
+// 2. Reusability 
+// 3. Strong Community and Ecosystem 
+// 4. Flexibility 
 
 // ### Downsides of React:
 // 1. Learning Curve
@@ -49,10 +49,27 @@
 //<--------------------------------------------------------------------->
 
 
-// What is reconciliation ( react fiber algorithm )
+// What is reconciliation
 // Reconciliation involves identifying what parts of the virtual DOM have changed and efficiently updating only those parts in the actual DOM. The single-root structure simplifies this process by providing a clear entry point for React to determine where updates should occur.
 
+
+//react fiber 
+// it's a new engine in react that is used to optimize the rendering process.
+
+
+// API
+// Application Programming Interface (API) refers to a set of protocols and tools used to communicate with a system.
+
+// React API's
+// All hooks are part of the React API.
+
+//Lifecycle of Components
+// Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+
+// The three phases are: Mounting, Updating, and Unmounting.
+
 const MyComponent = () => {
+
     return (
         <> // single entry point for DOM
             <Header />
@@ -61,6 +78,7 @@ const MyComponent = () => {
         </>
     );
 };
+
 
 //<--------------------------------------------------------------------->
 
@@ -83,7 +101,6 @@ const MyComponent = () => {
 
 
 // Significance of Key in React
-
 // In React, when rendering a list of elements using the `map` function, it is crucial to assign a unique `key` prop to each element. The "key" is a special attribute that helps React identify which items have changed, been added, or been removed. This is essential for efficient updates and preventing unnecessary re-renders of the entire list.
 // When the `key` prop is not provided or not unique within the list, React can't efficiently track the changes, leading to potential issues in the application's performance and rendering.
 
@@ -179,7 +196,7 @@ const CallbackExample = () => {
 
 //<--------------------------------------------------------------------->
 
-const [value,setValue]= useState("")
+const [value, setValue] = useState("")
 
 // we cannot update the value that is assigned by const , so here how we are able to update the value because this is init by const and we are able to update it
 // when we update the value using set function then react will recall the whole component again behind the scene thats why we are able to update the value that is assigned by const
