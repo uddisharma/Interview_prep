@@ -40,6 +40,7 @@ function MeasureExample() {
 // what are higher order components and implement it in react.
 // Higher Order Components (HOCs) are an advanced technique in React for reusing component logic. An HOC is a function that takes a component and returns a new component. HOCs can add additional data, inject props, or modify the behavior of the original component.
 
+
 import React from 'react';
 
 // Higher Order Component
@@ -92,6 +93,7 @@ function App() {
 // Question 3
 // what is subscription and how to implement it in react
 // A subscription is a function that sets up a subscription to some data source. It returns a function that can be called to unsubscribe.
+
 
 import { useEffect, useState } from 'react';
 
@@ -269,12 +271,13 @@ function App() {
 
 // Question 10
 // Do Hooks cover all the functionalities provided by the classes?
-//  Our goal is for Hooks to cover all the functionalities for classes at its
-// earliest. There are no Hook equivalents for the following methods that are
+//  Our goal is for Hooks to cover all the functionalities for classes at its    
+// earliest. There are no Hook equivalents for the following methods that are  
 // not introduced in Hooks yet:
+
 // 1) getSnapshotBeforeUpdate()
 // 2) getDerivedStateFromError()
-// 3) componentDidCatch()
+// 3) componentDidCatch() 
 
 
 // <--------------------------------------------------------->
@@ -305,3 +308,6 @@ useEffect(() => {
 }, []);
 
 // 1, 3 , 5, 2, 4, 6
+
+
+
