@@ -1,3 +1,4 @@
+
 // ### Question 1:
 // **Explain how you would configure a TypeScript project to target ES6, use CommonJS modules, enforce strict type checking, set the root directory to `src`, output compiled files to `dist`, and remove comments from the final compiled JavaScript. Provide the `tsconfig.json` configuration for this setup.**
 
