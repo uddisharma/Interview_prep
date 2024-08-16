@@ -1,3 +1,5 @@
+
+
 // Illegal shadowing -> when we declare a variable with a some name in a certain scope after that we will define a variable with same name in another scope then it will become illegal shadowing
 // for example->
 
