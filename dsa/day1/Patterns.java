@@ -1,3 +1,4 @@
+
 package dsa.day1;
 
 public class Patterns {
