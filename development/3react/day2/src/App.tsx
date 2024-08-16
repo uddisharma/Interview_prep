@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import ErrorPage from './Pages/Error';
 import Accordian from './Pages/Accordian';
 
+
 function App() {
   const { theme } = useContext(ThemeContext)!;
 

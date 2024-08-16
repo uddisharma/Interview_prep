@@ -1,3 +1,4 @@
+
 export default function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) {
     return (
         <div role="alert">

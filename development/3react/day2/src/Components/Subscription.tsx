@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+
 function MyComponent() {
     const [data, setData] = useState<string | null>(null);
 

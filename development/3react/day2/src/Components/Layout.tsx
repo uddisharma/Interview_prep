@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
+
 function LayoutEffect() {
     const [width, setWidth] = useState(0);
     const ref = useRef<HTMLDivElement>(null);

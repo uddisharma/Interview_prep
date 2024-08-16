@@ -1,6 +1,7 @@
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "../Components/ErrorBoundry";
 
+
 function BuggyComponent() {
     throw new Error('Simulated error!');
     return <div>This will not render</div>;

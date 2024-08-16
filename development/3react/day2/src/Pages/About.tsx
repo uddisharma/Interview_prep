@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react"
 import { Link, useNavigate } from "react-router-dom"
 const Component = lazy(() => import('../Components/Subscription'))
 
+
 const About = () => {
     const navigate = useNavigate();
 
