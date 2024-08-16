@@ -1,3 +1,5 @@
+
+
 //TypeScript is an open-source programming language developed and maintained by Microsoft. It is a statically typed superset of JavaScript, which means it extends JavaScript by adding optional static types, interfaces, enums, and other features. TypeScript code is transpiled into plain JavaScript, which can then be run in any environment that supports JavaScript, such as web browsers and Node.js.
 
 //we cannot use typescript in other languages than javascript
