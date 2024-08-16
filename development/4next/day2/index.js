@@ -1,3 +1,4 @@
+
 // Question 1
 // What is Next JS and why this is preferred over React JS?
 
