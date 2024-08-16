@@ -1,6 +1,5 @@
 //TEST
 
-
 // ### Question 1:
 // what are utility types in typescript? and tell me which method of TS from type and interface will work with utility types
 // Uility types provide a way to manipulate types and derive new types based on existing ones. and Types will works with utility types
