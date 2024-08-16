@@ -1,3 +1,5 @@
+
+
 // Classes
 // 1. **Theory**: What is a class in JavaScript?
 // A class is a blueprint for creating objects. It defines the properties and methods that the objects created from it will have.
