@@ -87,7 +87,7 @@ const user4: ExtendedUser2 = {
 // ### Question 4:
 // **Explain the concept of type guards in TypeScript. Provide examples of how to use user-defined type guards to narrow down types.**
 
-//Type guards are expressions that perform runtime checks to ensure that a variable is of a specific type.
+// Type guards are expressions that perform runtime checks to ensure that a variable is of a specific type.
 
 function isString(value: any) {
   return typeof value === 'string';

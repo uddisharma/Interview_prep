@@ -10,11 +10,9 @@ undefined is automatically assigned to variables that have been declared but not
 
 
 2. **Guess the Output (Hoisting):**
-   ```javascript
    console.log(foo);
    var foo = "Hello";
    console.log(foo);
-   ```
 
 undefined
 Hello
@@ -33,7 +31,7 @@ hoisting is a concept in javascript used to access or extract the varible and fu
 let and const variables are also hoisted but not initialized, which leads to a ReferenceError if accessed before their declaration.
 for example->
 console.log(a) // undefined
-var a = 1
+var a = 1 
 
 5. **Guess the Output (Scope):**
    ```javascript
@@ -85,7 +83,7 @@ function Outer(){
    const a= 1
     return function inner (){
       console.log(a)
-     }
+    }
 }
 Outer()()
 
@@ -103,7 +101,7 @@ Outer()()
 
 1. **Definition:** What is the difference between `var`, `let`, and `const` in JavaScript?
 let var and const all three used to declare the variables , there are some difference between them 
-hoisting only works with var
+hoisting only works with var 
  var = we can redecare and reassign the varibale 
  let = we can reassign variable but cannot redecare 
  const = we cannot both reassign and redecare variable
@@ -210,7 +208,7 @@ JavaScript allows objects to inherit properties and methods from other objects t
        console.log(message);
    });
    ```
-   //print done after 100 milisecond
+   //print done after 100 milisecond 
 
 3. **Build Function:** Write a function that returns the Fibonacci sequence up to a given number.
 const fibbonacci = (num) => {
@@ -225,7 +223,7 @@ this keyboard is a global object used to reference something , this mainly used 
 used in ->
 In a method, this refers to the object that owns the method.
 In a constructor function, this refers to the newly created instance.
-In a regular function, this refers to the global object (window in browsers) in non-strict mode, or undefined in strict mode.
+In a regular function, this refers to the global object (window in browsers) in non-strict mode, or undefined in0 strict mode.
 In arrow functions, this is lexically bound from the surrounding context.
 
 5. **Guess the Output (Closures):**

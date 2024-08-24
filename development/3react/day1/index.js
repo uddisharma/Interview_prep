@@ -120,8 +120,8 @@ const MyComponent = () => {
 //useEffect :is used for performing side effects in functional components. It is often used for tasks such as data fetching, subscriptions, or manually changing the DOM.
 // console.log() outside useEffect will be logged first and inside one will logged second
 
-// useMemo : is used for optimizing performance. It prevent the unnecessary recalculations. it holds very expensive calculations and returns a memoized value of a function.
-// The memorized function will only be recomputed when the values in the dependencies array change.
+// useMemo : is used for optimizing performance. It prevent the unnecessary recalculations. it holds very expensive calculations and returns a memoized value of a function. 
+// The memorized function will only be recomputed when the values in the dependencies array change. 
 
 
 import React, { useState, useMemo } from 'react';

@@ -78,7 +78,7 @@ const page = async () => {
     const data1 = await response1.json()
 
     console.log(data1)
-
+    
     const response2 = await fetch('https://jsonplaceholder.typicode.com/todos')
     const data2 = await response2.json()
 

@@ -1,0 +1,9 @@
+`Events Modules`
+
+Event is a tool that is used to send our the signal on which we can perform any action like onclick on change , on submit 
+
+It is inbuilt method in node JS 
+
+Emitter is a tool that allows object to send out events and other part of program will listen to those events and respond accordingly 
+
+It help to different program communicate asynchronously
