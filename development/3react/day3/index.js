@@ -1,5 +1,3 @@
-
-
 // Question 1
 // what are hooks , please explain me about useLayoutEffect and implement it in react
 // useLayoutEffect is a hook that runs synchronously after all DOM mutations but before the browser has painted. It's similar to useEffect, but it fires synchronously.
