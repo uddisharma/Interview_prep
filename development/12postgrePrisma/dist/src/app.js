@@ -6,11 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const PostRoute_1 = __importDefault(require("./routes/PostRoute"));
+const UserRoute_1 = __importDefault(require("./routes/UserRoute"));
 app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.send('Health ok' + " " + new Date());
 });
 app.use(PostRoute_1.default);
+app.use(UserRoute_1.default);
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });

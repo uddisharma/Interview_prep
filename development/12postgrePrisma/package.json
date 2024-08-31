@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "seed": "tsc prisma/seed.ts",
     "dev": "npx nodemon",
-    "build": "tsc"
+    "build": "tsc",
+    "seed": "node prisma/seed.js"
+  },
+  "prisma": {
+    "seed": "tsc prisma/seed.ts"
   },
   "keywords": [],
   "author": "",

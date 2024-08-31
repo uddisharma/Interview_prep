@@ -8,9 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const prismaClient_1 = __importDefault(require("../src/prismaClient"));
 const usersSeed = [
     {
         email: 'one@example.com',
@@ -41,7 +43,7 @@ function seedData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             for (const user of usersSeed) {
-                yield prisma.user.upsert({
+                yield prismaClient_1.default.user.upsert({
                     where: { email: user.email },
                     update: {},
                     create: user,
@@ -53,17 +55,17 @@ function seedData() {
             console.error('Error seeding data:', error);
         }
         finally {
-            yield prisma.$disconnect();
+            yield prismaClient_1.default.$disconnect();
         }
     });
 }
 seedData()
     .then(() => __awaiter(void 0, void 0, void 0, function* () {
-    yield prisma.$disconnect();
+    yield prismaClient_1.default.$disconnect();
     console.log('first seed done');
 }))
     .catch((e) => __awaiter(void 0, void 0, void 0, function* () {
     console.error(e);
-    yield prisma.$disconnect();
+    yield prismaClient_1.default.$disconnect();
     process.exit(1);
 }));

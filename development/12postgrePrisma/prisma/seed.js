@@ -36,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var client_1 = require("@prisma/client");
-var prisma = new client_1.PrismaClient();
+var prismaClient_1 = require("../src/prismaClient");
 var usersSeed = [
     {
         email: 'one@example.com',
@@ -76,7 +75,7 @@ function seedData() {
                 case 1:
                     if (!(_i < usersSeed_1.length)) return [3 /*break*/, 4];
                     user = usersSeed_1[_i];
-                    return [4 /*yield*/, prisma.user.upsert({
+                    return [4 /*yield*/, prismaClient_1.default.user.upsert({
                             where: { email: user.email },
                             update: {},
                             create: user,
@@ -94,7 +93,7 @@ function seedData() {
                     error_1 = _a.sent();
                     console.error('Error seeding data:', error_1);
                     return [3 /*break*/, 8];
-                case 6: return [4 /*yield*/, prisma.$disconnect()];
+                case 6: return [4 /*yield*/, prismaClient_1.default.$disconnect()];
                 case 7:
                     _a.sent();
                     return [7 /*endfinally*/];
@@ -107,7 +106,7 @@ seedData()
     .then(function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, prisma.$disconnect()];
+            case 0: return [4 /*yield*/, prismaClient_1.default.$disconnect()];
             case 1:
                 _a.sent();
                 console.log('first seed done');
@@ -120,7 +119,7 @@ seedData()
         switch (_a.label) {
             case 0:
                 console.error(e);
-                return [4 /*yield*/, prisma.$disconnect()];
+                return [4 /*yield*/, prismaClient_1.default.$disconnect()];
             case 1:
                 _a.sent();
                 process.exit(1);

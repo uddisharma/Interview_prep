@@ -3,6 +3,7 @@ import express from 'express';
 const app = express();
 
 import PostRouter from './routes/PostRoute'
+import UserRouter from './routes/UserRoute'
 
 
 app.use(express.json());
@@ -12,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.use(PostRouter)
-
+app.use(UserRouter)
 
 
 app.listen(3000, () => {

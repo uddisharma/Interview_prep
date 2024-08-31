@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import prisma from "../src/prismaClient";
 
-const prisma = new PrismaClient();
 
 const usersSeed = [
     {
@@ -12,7 +11,7 @@ const usersSeed = [
                     title: 'Hello World',
                     content: 'This is my first post',
                 },
-            ],
+            ], 
         },
     },
     {
